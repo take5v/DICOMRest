@@ -7,7 +7,7 @@ DICOMRest API
 
   Отправка одного DICOM файла на сервис осуществляется POST запросом
   
-    curl -X POST localhost/instances --data-binary img0001.dcm
+    curl -X POST http://localhost/instances --data-binary img0001.dcm
     
   В ответ вернётся следующий JSON файл:
   
@@ -21,7 +21,7 @@ DICOMRest API
   
   GET запрос всех объектов типа изображений:
   
-    curl localhost/instances
+    curl http://localhost/instances
     
   Ответ - JSON файл:
   
@@ -32,7 +32,7 @@ DICOMRest API
   
   GET запрос одного изображения:
   
-    curl localhost/instances/e87da270-c52b-4f2a-b8c6-bae25928d0b0/
+    curl http://localhost/instances/e87da270-c52b-4f2a-b8c6-bae25928d0b0/
     
   Ответ:
   
@@ -41,6 +41,13 @@ DICOMRest API
       "PatientName" : "Alex"
     }
   
+  POST запрос на модификацию метаданных изображения:
   
+    curl -X POST http://localhost/instances/e87da270-c52b-4f2a-b8c6-bae25928d0b0/modify -d '{"Replace":"PatientName":"SuperAlex"}'
+    
+    {
+      "ID" : "e87da270-c52b-4f2a-b8c6-bae25928d0b0",
+      "PatientName" : "SuperAlex"
+    }
   
   
