@@ -1,0 +1,5 @@
+dcmtk:
+	1. download from http://dicom.offis.de/download/dcmtk/snapshot/dcmtk-3.6.1_20140617.tar.gz
+	2. ./configure --enable-std-includes
+	3. make all | make install
+	4. make distclean
