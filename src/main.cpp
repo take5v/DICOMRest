@@ -45,13 +45,10 @@ public:
             delete restApi;
         }
         virtual void handleRequest(fastcgi::Request *request, fastcgi::HandlerContext *context) {
-                //Здесь размещается код обработки запроса
-
                 FastCGIOutputStream fastcgioutputstream(request);
                 HttpOutput httpOutput(fastcgioutputstream);
 
                 std::string uri = request->getURI();
-                //request->write(uri.c_str(), uri.size());
                 std::string method = request->getRequestMethod();
 
                 fastcgi::DataBuffer bodyBuffer = request->requestBody();
@@ -59,9 +56,6 @@ public:
                 bodyBuffer.toString(body);
 
                 restApi->Handle(httpOutput, uri, method, body);
-
-//                httpOutput.SetHeader("Simple-Header", "Reply from DICOMRest");
-//                httpOutput.SetContentType("text/plain");
         }
 };
 
