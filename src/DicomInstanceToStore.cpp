@@ -14,7 +14,7 @@ DicomInstanceToStore::~DicomInstanceToStore()
 
 void DicomInstanceToStore::SetBuffer(const std::string& buffer)
 {
-    // fake farse file
+    // fake file parsing
 }
 std::string DicomInstanceToStore::GetPatientName()
 {
